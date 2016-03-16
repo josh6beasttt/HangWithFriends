@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div class="INCLUDE">
+        <title>Choose Friends | Hang With Friends</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </div>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Hang With Friends</a>
+        </div>
+        <!--<ul class="nav navbar-nav">-->
+        <!--<li class="active"><a href="#">Home</a></li>-->
+        <!--<li><a href="#">Page 1</a></li>-->
+        <!--<li><a href="#">Page 2</a></li>-->
+        <!--<li><a href="#">Page 3</a></li>-->
+        <!--</ul>-->
+        <ul class="nav navbar-nav navbar-right">
+            <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+            <li>
+                {% if me_name %}
+                <div class="navbar-brand">{{me_name}}</div><img src="{{me_picture}}"/>
+                {% else %}
+                <a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container CHOOSE_FRIENDS">
+    <div class="starter-template">
+        <h1>Choose friends</h1>
+        <p class="lead">Pick out which friends you want to hang out with!</p>
+    </div>
+</div>
+
+<div class="container CHECKLIST">
+    <form action="demo_form.asp">
+        <table class="table table-striped">
+            {% for item in friendsList %}
+            <tr>
+                <td style="vertical-align:middle"><input type="checkbox" name="friend_id[]" value={{item['id']}}></td>
+                <td><img src="{{item['profile_thumbnail']}}"/></td>
+                <td style="vertical-align:middle">{{item['name']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" class="btn btn-success" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
