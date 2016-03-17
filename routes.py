@@ -7,11 +7,7 @@ app = Flask(__name__)
 
 @app.route('/choose_friends')
 def hello():
-    access_token = 'CAACEdEose0cBACJZAcH5u0pZA5wBrXD03iN6eriok0LScf' \
-                   'fsd7uGLcZAM7h6MydaT0J2GKiZC3sCE39WZARgARwnkDZAn' \
-                   '095OlCMntwcGY0ZC7Ib2I6CmSJJEAxeu1TWwoarL036JtbZ' \
-                   'CudFEH3tKozDlQIXIv51sd5ZA8WZABSjnAzONbQ7ZAv7wGn' \
-                   'eX0P5R1T0ybnLAMy0f8gMgZDZD'
+    access_token = 'access_token_here'
     graph = GraphAPI(access_token)
     friends = graph.get_object('me/friends')
     friendsList = []
@@ -46,4 +42,3 @@ if __name__ == '__main__':
 
     app.debug = True
     app.run()
-
